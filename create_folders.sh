@@ -5,7 +5,10 @@
 # ./create_folders.sh
 # in the background the output prepares the machine
 # mv ./create_folders.sh /workspaces/OperatorManagement/6_Symbols
-# do the commit > git pull; git add . ; git commit -m "Codespaces" -m "updates"; git push;sleep 3;clear
+# mv ./1.3.2_journey_starter.drawio /workspaces/OperatorManagement/1_Journey
+# mv ./create_folders.sh /workspaces/OperatorManagement/6_Symbols/
+# do the commit initial>
+# git pull; git add . ; git commit -m "Codespaces" -m "initial structure"; git push;sleep 3;clear
 
 # Define folder names and their respective README content
 declare -A folders=(
