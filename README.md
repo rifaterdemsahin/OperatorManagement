@@ -1,6 +1,9 @@
 # OperatorManagement
 Kubernetes operator managerment
 
+## AI First Approach
+- Document the prompts and commit the updates while progressing handson
+
 ## Self Learning Project 
 
 Documentation for the Folder Structure
