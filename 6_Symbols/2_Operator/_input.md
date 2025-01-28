@@ -13,10 +13,12 @@
 # prometheus stak depends on the grafana-operator CRD
 - helm install prometheus-operator prometheus-community/kube-prometheus-stack -n default
 # in the back ground it installs the grafana service
+- kubectl get pods -n default
+
 # GrafanaOperator should be used to deploy datasource > this is controlled by the operator based
 - kubectl get pods -n grafana-monitoring
 - kubectl get all -n grafana-monitoring
 
-
+# GrafanaInstance
 - kubectl apply -f /workspaces/grafana-dashboard/6_Symbols/4_DatasourceSetup/tomi-datasource.yaml -n grafana-grafanamonitoring
-
+- kubectl get pods -n grafana-monitoring
