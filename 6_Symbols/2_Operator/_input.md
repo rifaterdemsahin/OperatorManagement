@@ -7,7 +7,8 @@
 
 - helm repo add grafana https://grafana.github.io/helm-charts
 - helm repo update
-- helm install grafana-operator grafana/grafana-operator -n grafana-monitoring 
+# uses the default value as it is an operator 
+- helm install grafana-operator grafana/grafana-operator  -n default
 # prometheus stak depends on the grafana-operator CRD
 - helm install prometheus-operator prometheus-community/kube-prometheus-stack -n grafana-monitoring
 # in the back ground it installs the grafana service
