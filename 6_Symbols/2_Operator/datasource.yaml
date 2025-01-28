@@ -1,0 +1,46 @@
+# Define the API version and kind of the resource
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+
+# Metadata about the resource
+metadata:
+  name: grafanadatasource-sample  # Name of the GrafanaDatasource resource
+
+# Specification of the datasource
+spec:
+  valuesFrom:
+    # Define where to get the basicAuthUser value from
+    - targetPath: "basicAuthUser"
+      valueFrom:
+        secretKeyRef:
+          name: "credentials"  # Name of the Kubernetes secret
+          key: "PROMETHEUS_USERNAME"  # Key in the secret containing the username
+
+    # Define where to get the secureJsonData.basicAuthPassword value from
+    - targetPath: "secureJsonData.basicAuthPassword"
+      valueFrom:
+        secretKeyRef:
+          name: "credentials"  # Name of the Kubernetes secret
+          key: "PROMETHEUS_PASSWORD"  # Key in the secret containing the password
+
+  # Selector to match the Grafana instance
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"  # Label to match the Grafana instance
+
+  # Configuration of the datasource
+  datasource:
+    name: prometheus  # Name of the datasource
+    type: prometheus  # Type of the datasource
+    access: proxy  # Access method
+    basicAuth: true  # Enable basic authentication
+    url: http://prometheus-operated.default.svc.cluster.local:9090  # URL of the Prometheus server
+    isDefault: true  # Set this datasource as the default
+    basicAuthUser: ${PROMETHEUS_USERNAME}  # Username for basic authentication, fetched from the secret
+
+    jsonData:
+      "tlsSkipVerify": true  # Skip TLS verification
+      "timeInterval": "5s"  # Time interval for querying
+
+    secureJsonData:
+      "basicAuthPassword": ${PROMETHEUS_PASSWORD}  # Password for basic authentication, fetched from the secret
