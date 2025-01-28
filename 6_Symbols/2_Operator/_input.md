@@ -20,5 +20,5 @@
 - kubectl get all -n grafana-monitoring
 
 # GrafanaInstance
-- kubectl apply -f /workspaces/grafana-dashboard/6_Symbols/4_DatasourceSetup/tomi-datasource.yaml -n grafana-grafanamonitoring
+- kubectl apply -f /workspaces/OperatorManagement/6_Symbols/2_Operator/datasource.yaml -n grafana-monitoring
 - kubectl get pods -n grafana-monitoring
