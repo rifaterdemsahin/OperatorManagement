@@ -1,3 +1,6 @@
+- minikube delete
+- minikube start
+
 To install Grafana with the Grafana Operator from Bitnami using `kubectl`, follow these steps:
 
 1. **Add the Bitnami Helm repository**:
