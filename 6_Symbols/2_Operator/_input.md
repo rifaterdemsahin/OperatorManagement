@@ -9,8 +9,9 @@
 - helm repo update
 # uses the default value as it is an operator 
 - helm install grafana-operator grafana/grafana-operator  -n default
+
 # prometheus stak depends on the grafana-operator CRD
-- helm install prometheus-operator prometheus-community/kube-prometheus-stack -n grafana-monitoring
+- helm install prometheus-operator prometheus-community/kube-prometheus-stack -n default
 # in the back ground it installs the grafana service
 # GrafanaOperator should be used to deploy datasource > this is controlled by the operator based
 - kubectl get pods -n grafana-monitoring
