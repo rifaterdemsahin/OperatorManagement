@@ -19,7 +19,7 @@ To create two different instances using values files named `values_a.yaml` and `
     ```sh
     helm repo update
     ```
-
+cd /workspaces/OperatorManagement/6_Symbols/4_OperatorBitnamiConfigured/
 5. **Install the first Grafana instance using `values_a.yaml`**:
     ```sh
     helm install grafana-a bitnami/grafana-operator -f values_a.yaml
